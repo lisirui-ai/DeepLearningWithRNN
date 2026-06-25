@@ -40,8 +40,8 @@
 | 3   | IMDB 双向 RNN（2 层） | Deep BiRNN · 多层堆叠 · 正则化 | 深层 RNN 表达能力提升 |
 | 4   | Shakespeare 字符级 RNN 生成 | Char Tokenization · Language Modeling · 温度采样 | 从零实现文本生成流程 |
 | 5   | IMDB 双向 LSTM（2 层） | BiLSTM · 门控机制 · Early Stopping | 对比 RNN 与 LSTM 效果 |
-| 6   | Shakespeare 字符级 Embedding + LSTM | Char Embedding · LSTM · 自回归推理 | 更稳定的长依赖生成 |
-| 7   | IMDB 子词级 BPE + LSTM | BPE 分词 · Subword Embedding · BiLSTM | OOV 处理与子词建模 |
+| 6   | Shakespeare 字符级 Tokenization + LSTM | Char Tokenization · LSTM · 自回归推理 | 更稳定的长依赖生成 |
+| 7   | IMDB 子词级 Tokenization + LSTM | BPE 分词 · Subword Tokenization · BiLSTM | OOV 处理与子词建模 |
 
 ---
 
@@ -54,8 +54,8 @@ DeepLearningWithRNN/
 ├── 📓 3.IMDBText_classification_WordLevelTokenization_RNN2Layer2Direction.ipynb
 ├── 📓 4.ShakespeareText_generation_CharLevelTokenization_rnn.ipynb
 ├── 📓 5.IMDBText_classification_WordLevelTokenization_LSTM2Layer2Direction.ipynb
-├── 📓 6.ShakespeareText_generation_CharLevelEmbedding_lstm.ipynb
-├── 📓 7.IMDBText_classification_SubwordLevelEmbedding_LSTM.ipynb
+├── 📓 6.ShakespeareText_generation_CharLevelTokenization_lstm.ipynb
+├── 📓 7.IMDBText_classification_SubwordLevelTokenization_LSTM.ipynb
 │
 ├── 📂 data/
 │   ├── imdb/                       # HuggingFace IMDB 本地缓存
@@ -164,9 +164,9 @@ DeepLearningWithRNN/
 
 ---
 
-### 6.Shakespeare 字符级 Embedding + LSTM 生成
+### 6.Shakespeare 字符级 Tokenization + LSTM 生成
 
-> `6.ShakespeareText_generation_CharLevelEmbedding_lstm.ipynb`
+> `6.ShakespeareText_generation_CharLevelTokenization_lstm.ipynb`
 
 在字符级生成任务中引入 Embedding + LSTM 架构，提升训练稳定性与生成文本连贯性，适合理解语言模型的标准实现路径。
 
@@ -180,9 +180,9 @@ DeepLearningWithRNN/
 
 ---
 
-### 7.IMDB 子词级 BPE + LSTM 文本分类
+### 7.IMDB 子词级 Tokenization + LSTM 文本分类
 
-> `7.IMDBText_classification_SubwordLevelEmbedding_LSTM.ipynb`
+> `7.IMDBText_classification_SubwordLevelTokenization_LSTM.ipynb`
 
 引入 BPE 子词分词（subword-nmt）构建子词级输入，缓解 OOV 问题，并通过 BiLSTM 完成 IMDB 二分类训练与评估。
 
@@ -240,7 +240,7 @@ IMDB BiLSTM      →   IMDB BPE + BiLSTM
 
 并行分支（文本生成）：
 Notebook 4          Notebook 6
-Char-RNN         →   Char-Embedding + LSTM
+Char-RNN         →   Char-Tokenization + LSTM
 字符级生成入门        更稳定的字符级生成
 ```
 
